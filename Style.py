@@ -1,10 +1,12 @@
+#this file was created by Xtarii and uploaded to Github: https://github.com/Xtarii/PythonStylePack
+
 #imports:
 import time
 
 
 
 #extras:
-#denna delen är lånad av google för att färger i window är väldigt compliserade
+#this part is taken form google "StackOverflow" https://stackoverflow.com/questions/67241111/python-colored-text-to-the-terminal#:~:text=The%20most%20basic%20terminals%20have%20a%20set%20of,%5Cu001b%20%5B36m%208%20White%3A%20%5Cu001b%20%5B37m%20Fler%20objekt
 Colors = {
     "HEADER": '\033[95m',
     "BLUE": '\033[94m',
@@ -20,7 +22,7 @@ Colors = {
 
 
 #defs:
-#detta är en loadingbar som spinner runt
+#this is a round loadingbar
 def loadingbar_spinning(sleep=float(0.1), times=int(3), text=str("Loading: ")):
     print(Colors["BOLD"] + text + " ", sep="", end="", flush=True)
     for x in range(times):
@@ -31,7 +33,7 @@ def loadingbar_spinning(sleep=float(0.1), times=int(3), text=str("Loading: ")):
     print("\b|", Colors["ENDC"] + "\n\n")
 
 
-#detta är en loadingbar som bara är ett streck
+#this is a loadingbar line
 def loadingbar_line(sleep=float(0.1), times=int(51), text=str("Loading: ")):
     print(Colors["BOLD"] + text + " ", sep="", end="", flush=True)
     for x in range(times):
