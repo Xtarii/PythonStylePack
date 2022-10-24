@@ -3,6 +3,8 @@ This is a StylePack for python so your output is a bit more alive
 
 If you make a moded version for this project, add my name and a link to this github page
 
+"Xtarii : https://github.com/Xtarii/PythonStylePack"
+
 
 
 -------------------------------------
