@@ -7,6 +7,8 @@ If you make a moded version for this project, add my name and a link to this git
 
 
 
+install with: pip install styles
+
 -------------------------------------
 
 This Pack contains:
@@ -18,6 +20,6 @@ This Pack contains:
 
 - Loadingbar Download look
 
--------------------------------------
+- And more
 
-install with: pip install styles
+-------------------------------------
