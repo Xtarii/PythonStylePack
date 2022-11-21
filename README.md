@@ -17,3 +17,7 @@ This Pack contains:
 - Loadingbar Spinning Wheel
 
 - Loadingbar Download look
+
+-------------------------------------
+
+install with: pip install styles
