@@ -67,6 +67,8 @@ def loadLineDL(sleep=float(0.1), text=str("Loading:")):
     This loadingbar will look something like this:
     Loading: [#####     ] 50%
 
+    this one will only count: 10, 20, 30, 40, 50, 60, 70, 80, 90, 100
+
     sleep:  time delay before next character is printed
     text:   set the text before loading, by default it has not space
 
@@ -74,6 +76,8 @@ def loadLineDL(sleep=float(0.1), text=str("Loading:")):
     it will always print "##" 10 times: ####################
 
     ends with two new lines, and the default color
+
+    the name DL is for Download Line
     """
 
     t = ""
@@ -89,3 +93,106 @@ def loadLineDL(sleep=float(0.1), text=str("Loading:")):
     
     #at the end print the hole line
     print(Colors["BOLD"] + text, Colors["FAIL"] + f"[{line}]", Colors["ENDC"] + "100%\n\n")
+
+
+#this is a loadingbar line with download style, but this one can count 1 and 10
+def loadLineDSE(sleep=float(0.1), text=str("Loading:")):
+    """
+    This is almost like styles.loadingLineDL but this one can count with 1
+    
+    sleep:  time delay before next character is printed
+    text:   text before loading, default look: Loading: [######    ] 60%
+
+    this loadingbar will load from 1 - 100%, it will have [#####   ]
+    and a text displaying what "text" is set to
+
+    this function will exit with two new lines
+
+    "DSE" is for "Download Style Enter", dont really know what E is for yet
+    """
+
+    #extras:
+    t = ""
+    space = "                   "
+    procent = 1
+    prev = 0
+
+    #loadingbar loop
+    for x in range(100):
+        #setting everything
+        procent = x
+
+        #this is set only when to aply more "###" to loadingbar line
+        if prev == 0:
+            prev = x
+        elif (x - prev) == 5:
+            t = t + "#"
+            space = (space + "\b")
+            
+            prev = x
+
+        line = (t + space)
+
+        #printing the line and waiting for "sleep" amount of seconds
+        print(Colors["BOLD"] + text, Colors["FAIL"] + f"[{line}]", Colors["ENDC"] + f"{procent}%", end="\r")
+        time.sleep(sleep)
+    
+    #end
+    print(Colors["BOLD"] + text, Colors["FAIL"] + f"[{line}]", Colors["ENDC"] + "100%\n\n")
+
+
+#this is a loadingbar line with download style, but this one can count 1 and 10, and it uses "-"
+def loadLineDSEL(sleep=float(0.1), text=str("Loading:")):
+    """
+    This is almost like styles.loadLineDSE but this one uses "-" and not "#"
+    
+    sleep:  time delay before next character is printed
+    text:   text before loading, default look: Loading: [------    ] 60%
+
+    this loadingbar will load from 1 - 100%, it will have [----   ]
+    and a text displaying what "text" is set to
+
+    this function will exit with two new lines
+
+    in case you wonder loadLineDSEL is not for Disel, it is for
+    "Loadingbar Line Download Style Enter Line" dont really know what E is for yet
+    """
+
+    #extras:
+    t = ""
+    space = "                   "
+    procent = 1
+    prev = 0
+
+    #loadingbar loop
+    for x in range(100):
+        #setting everything
+        procent = x
+
+        #this is set only when to aply more "###" to loadingbar line
+        if prev == 0:
+            prev = x
+        elif (x - prev) == 5:
+            t = t + "-"
+            space = (space + "\b")
+            
+            prev = x
+
+        line = (t + space)
+
+        #printing the line and waiting for "sleep" amount of seconds
+        print(Colors["BOLD"] + text, Colors["FAIL"] + f"[{line}]", Colors["ENDC"] + f"{procent}%", end="\r")
+        time.sleep(sleep)
+    
+    #end
+    print(Colors["BOLD"] + text, Colors["FAIL"] + f"[{line}]", Colors["ENDC"] + "100%\n\n")
+
+
+
+
+"""this part is for other than spinning wheels and loadingbars, this is for figures"""
+
+
+
+
+"""this part is for other things, like if you make a terminal and want to get ip"""
