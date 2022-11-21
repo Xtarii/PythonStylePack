@@ -15,3 +15,5 @@ This Pack contains:
 - Loadingbar line
 
 - Loadingbar Spinning Wheel
+
+- Loadingbar Download look
