@@ -1,3 +1,10 @@
+"""
+This Program is used for making loadingbars,
+mabye you have a part where the user waits a
+specific amount of sek
+and to make it look more alive you can use this,
+new output:    Loading [#######    ] 60%
+"""
 #imports:
 import time
 
@@ -186,13 +193,3 @@ def loadLineDSEL(sleep=float(0.1), text=str("Loading:")):
     
     #end
     print(Colors["BOLD"] + text, Colors["FAIL"] + f"[{line}]", Colors["ENDC"] + "100%\n\n")
-
-
-
-
-"""this part is for other than spinning wheels and loadingbars, this is for figures"""
-
-
-
-
-"""this part is for other things, like if you make a terminal and want to get ip"""
