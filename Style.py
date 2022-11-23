@@ -193,3 +193,69 @@ def loadLineDSEL(sleep=float(0.1), text=str("Loading:")):
     
     #end
     print(Colors["BOLD"] + text, Colors["FAIL"] + f"[{line}]", Colors["ENDC"] + "100%\n\n")
+
+
+#this will make a line with a spinningwheel
+def lineSpinning(sleep=float(0.1), text=str("Loading:"), times=int(10)):
+    """
+    This loadingbar will look like this-- Loading: ----------/
+
+    sleep:  delay between next printing figure
+    text:   the text that displays before loadingbar
+    times:  the amount of times we gona print ---- and make a spinning animation
+    
+    this will exit with two new lines, and will use colors that is not changeble
+    """
+    print(Colors["BOLD"] + text + "  ", sep="", end="", flush=True)
+    #start a loop
+    for x in range(times):
+        print("\b" + Colors["FAIL"] + "--", sep="", end="", flush=True)
+        for x in r"/-\|/-\|":
+            print("\b" + Colors["FAIL"] + x, sep="", end="", flush=True)
+            time.sleep(sleep)
+        time.sleep(sleep)
+    
+    #end
+    print(Colors["ENDC"] + "\n\n")
+
+
+#this will make a spinning wheel with % at the end
+def lineSpinningP(sleep=float(0.1), text=str("Loading:")):
+    """
+    This loadingbar will look like this-- Loading: ----------/ 100%
+    the P is for procent in lineSpinningP()
+
+    sleep:  delay between next printing figure
+    text:   the text that displays before loadingbar
+
+    Note: text don't need to end with space, this program add space
+    and sleep for the spinningwheel is 5 times faster than sleep time
+    so it is (sleep / 5)
+    
+    this time you can't set time.
+    this will exit with two new lines, and will use colors that is not changeble
+    """
+    #extras
+    lf = ""
+    prev = 0
+
+    #start a loop
+    procent = 0
+    for i in range(100):
+        #here we do some default things
+        procent = i
+
+        #make the end loading loop animation |/-\|/-\
+        for x in r"/-\|/-\|":
+            if prev == 0:
+                prev = i
+            elif(i - prev) == 5:
+                prev = i
+                lf = ("-" + (lf))
+
+            print(Colors["BOLD"] + text + " ", Colors["FAIL"] + lf + x + " ", Colors["ENDC"] + str(procent) + "%", "\r", sep="", end="", flush=True)
+            time.sleep(sleep / 5)
+        time.sleep(sleep)
+    
+    #end
+    print(Colors["BOLD"] + text + " ", Colors["FAIL"] + lf + x, Colors["ENDC"] + "100%\n\n")

@@ -5,8 +5,25 @@ if you make a terminal, you can use this for getting a ip
 time, and other useful things, like this:   user@ip
 """
 #imports:
-import time, os
+import time, os, socket
 from styles import Style
+
+
+
+#extras:
+#current user
+def currentUserInfo():
+    """
+    This will return the current user of this computer
+    this is used in some of the osInfo functions
+
+    [0] is for username
+    [1] is for ip
+    """
+    #yes this is so easy
+    current_User = os.getlogin()
+    current_ip = socket.gethostbyname(socket.gethostname())
+    return current_User, current_ip
 
 
 
@@ -26,9 +43,10 @@ def simpleLinuxUser(user=str("")):
     also ending on the same line, and with default color
     """
     if user == "":
-        user = "Windows logged in User"
+        user = currentUserInfo()[0]
     
-    print(Style.Colors["BOLD"] + user + Style.Colors["CYAN"] + "@ip:", Style.Colors["ENDC"] + " ", sep="", end="")
+    ip = currentUserInfo()[1]
+    print(Style.Colors["BOLD"] + user + Style.Colors["CYAN"] + f"@{ip}:", Style.Colors["ENDC"] + " ", sep="", end="")
 
 
 #this will make a linux looking user line: <user>@<ip>\n
@@ -48,10 +66,11 @@ def simpleLinuxUserNL(user=str(""), newLine=int(1)):
     in this you can only change user and new line
     """
     if user == "":
-        user = "Windows logged in User"
+        user = currentUserInfo()[0]
     
+    ip = currentUserInfo()[1]
     nl = ""
     for x in range(newLine):
         nl = nl + "\n"
 
-    print(Style.Colors["BOLD"] + user + Style.Colors["CYAN"] + "@ip:", Style.Colors["ENDC"] + " ", end=nl)
+    print(Style.Colors["BOLD"] + user + Style.Colors["CYAN"] + f"@{ip}:", Style.Colors["ENDC"] + " ", end=nl)
