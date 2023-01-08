@@ -1,8 +1,8 @@
 """
 This Program is for getting os info and making commands,
 
-if you make a terminal, you can use this for getting a ip
-time, and other useful things, like this:   user@ip
+if you make a terminal, you can use this for getting the ip,
+and other useful things, so the output can look like this: user@ip
 """
 #imports:
 import time, os, socket

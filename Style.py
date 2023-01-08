@@ -1,9 +1,17 @@
 """
 This Program is used for making loadingbars,
+and it can also make diffrent colors
+like FAIL (red) or BLUE (blue)
+
 mabye you have a part where the user waits a
-specific amount of sek
-and to make it look more alive you can use this,
-new output:    Loading [#######    ] 60%
+specific amount of sek and to make it look
+more alive you can use this as new output:
+
+Loading: [#######    ] 60%
+
+or this:
+
+50%  [working]
 """
 #imports:
 import time
@@ -259,3 +267,47 @@ def lineSpinningP(sleep=float(0.1), text=str("Loading:")):
     
     #end
     print(Colors["BOLD"] + text + " ", Colors["FAIL"] + lf + x, Colors["ENDC"] + "100%\n\n")
+
+
+#this is a loadingbar that will let you pick colors and will look like this: 50% [working]
+def loadingbarPFT(sleep=float(0.1), text=str("working"), loading_color=Colors["FAIL"], end_color=Colors["ENDC"], text_color=Colors["FAIL"]):
+    """
+    This will be a custom loadingbar,
+    PFT = Procent First with Text
+
+    sleep: amount of delay before next procent
+    text:  the display text, will be inside [ ]
+    
+    loading_color:  This will be the loadingbar color, default "FAIL"
+    end_color:      This will be the exit color, default "ENDC"
+    text_color:     This color will be the color of the text, default "FAIL"
+
+    Note: The Colors are recomended to be styles.Colors[color], if you have other
+    colors you can try, but it may give an error
+    and recomended color combines are:
+        text = BLUE
+        loading = FAIL (default) or WARNING
+        end = ENDC (default)
+
+    this one will print from 1% - 100%
+    it will look something like this:   50% [working]
+
+    this will en with 2 new lines
+    """
+    for x in range(100):
+        if x < 10:
+            #here we set the space to 3
+            line = (str(x) + "%" + "   " + text_color + f"[{text}]")
+            print(loading_color + line, "\r", sep="", end="", flush=True)
+        
+        else:
+            #this will set the space from 3 to 2
+            line = (str(x) + "%" + "  " + text_color + f"[{text}]")
+            print(loading_color + line, "\r", sep="", end="", flush=True)
+
+        #delay
+        time.sleep(sleep)
+    
+    #end, it will end with space
+    print(loading_color + str(100) + "%", text_color + f" [{text}]")
+    print(end_color + "\n")

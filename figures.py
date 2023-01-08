@@ -26,13 +26,14 @@ def line(flush=bool(True), times=int(15), delay=float(0.1)):
 
 
 #simple rect that can take in width and height input but it is only in int
-def sRect(width=int(10), height=int(10), xPos=int(20)):
+def sRect(width=int(10), height=int(10), xPos=int(20), delay=float(0.0)):
     """
-    This can make a rect,
+    This can make a rect, (sRect = simple Rect)
 
     width:    a int that sets the width of the triangle
     height:   a int that sets the height of the triangle
     xPos:     this will let you .rjust the rectangle
+    delay:    this is to make the rect print the midle slowly
 
     width and height is set to 10 by default, that will make ----------
     with an ecual height
@@ -57,6 +58,7 @@ def sRect(width=int(10), height=int(10), xPos=int(20)):
             print(s.rjust(xPos))
             
             prev = x
+            time.sleep(delay)
     
     #here we print the bottom
     print(t.rjust(xPos))
