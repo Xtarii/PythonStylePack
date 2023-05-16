@@ -52,7 +52,7 @@ def loadingbar_spinning(sleep=float(0.1), times=int(3), text=str("Loading: ")):
         for x in r"-\|/-\|/":
             print("\b", Colors["FAIL"] + x, sep="", end="", flush=True)
             time.sleep(sleep)
-    
+
     print("\b|", Colors["ENDC"] + "\n\n")
 
 
@@ -72,7 +72,7 @@ def loadingbar_line(sleep=float(0.1), times=int(51), text=str("Loading: ")):
     for x in range(times):
         print(Colors["FAIL"] + "#", sep="", end="", flush=True)
         time.sleep(sleep)
-    
+
     print(Colors["ENDC"] + "\n\n")
 
 
@@ -105,7 +105,7 @@ def loadLineDL(sleep=float(0.1), text=str("Loading:")):
 
         print(Colors["BOLD"] + text, Colors["FAIL"] + f"[{line}]", Colors["ENDC"] + f"{procent}%", end="\r")
         time.sleep(sleep)
-    
+
     #at the end print the hole line
     print(Colors["BOLD"] + text, Colors["FAIL"] + f"[{line}]", Colors["ENDC"] + "100%\n\n")
 
@@ -114,7 +114,7 @@ def loadLineDL(sleep=float(0.1), text=str("Loading:")):
 def loadLineDSE(sleep=float(0.1), text=str("Loading:")):
     """
     This is almost like styles.loadingLineDL but this one can count with 1
-    
+
     sleep:  time delay before next character is printed
     text:   text before loading, default look: Loading: [######    ] 60%
 
@@ -143,7 +143,7 @@ def loadLineDSE(sleep=float(0.1), text=str("Loading:")):
         elif (x - prev) == 5:
             t = t + "#"
             space = (space + "\b")
-            
+
             prev = x
 
         line = (t + space)
@@ -151,7 +151,7 @@ def loadLineDSE(sleep=float(0.1), text=str("Loading:")):
         #printing the line and waiting for "sleep" amount of seconds
         print(Colors["BOLD"] + text, Colors["FAIL"] + f"[{line}]", Colors["ENDC"] + f"{procent}%", end="\r")
         time.sleep(sleep)
-    
+
     #end
     print(Colors["BOLD"] + text, Colors["FAIL"] + f"[{line}]", Colors["ENDC"] + "100%\n\n")
 
@@ -160,7 +160,7 @@ def loadLineDSE(sleep=float(0.1), text=str("Loading:")):
 def loadLineDSEL(sleep=float(0.1), text=str("Loading:")):
     """
     This is almost like styles.loadLineDSE but this one uses "-" and not "#"
-    
+
     sleep:  time delay before next character is printed
     text:   text before loading, default look: Loading: [------    ] 60%
 
@@ -190,7 +190,7 @@ def loadLineDSEL(sleep=float(0.1), text=str("Loading:")):
         elif (x - prev) == 5:
             t = t + "-"
             space = (space + "\b")
-            
+
             prev = x
 
         line = (t + space)
@@ -198,7 +198,7 @@ def loadLineDSEL(sleep=float(0.1), text=str("Loading:")):
         #printing the line and waiting for "sleep" amount of seconds
         print(Colors["BOLD"] + text, Colors["FAIL"] + f"[{line}]", Colors["ENDC"] + f"{procent}%", end="\r")
         time.sleep(sleep)
-    
+
     #end
     print(Colors["BOLD"] + text, Colors["FAIL"] + f"[{line}]", Colors["ENDC"] + "100%\n\n")
 
@@ -211,7 +211,7 @@ def lineSpinning(sleep=float(0.1), text=str("Loading:"), times=int(10)):
     sleep:  delay between next printing figure
     text:   the text that displays before loadingbar
     times:  the amount of times we gona print ---- and make a spinning animation
-    
+
     this will exit with two new lines, and will use colors that is not changeble
     """
     print(Colors["BOLD"] + text + "  ", sep="", end="", flush=True)
@@ -222,7 +222,7 @@ def lineSpinning(sleep=float(0.1), text=str("Loading:"), times=int(10)):
             print("\b" + Colors["FAIL"] + x, sep="", end="", flush=True)
             time.sleep(sleep)
         time.sleep(sleep)
-    
+
     #end
     print(Colors["ENDC"] + "\n\n")
 
@@ -239,7 +239,7 @@ def lineSpinningP(sleep=float(0.1), text=str("Loading:")):
     Note: text don't need to end with space, this program add space
     and sleep for the spinningwheel is 5 times faster than sleep time
     so it is (sleep / 5)
-    
+
     this time you can't set time.
     this will exit with two new lines, and will use colors that is not changeble
     """
@@ -264,7 +264,7 @@ def lineSpinningP(sleep=float(0.1), text=str("Loading:")):
             print(Colors["BOLD"] + text + " ", Colors["FAIL"] + lf + x + " ", Colors["ENDC"] + str(procent) + "%", "\r", sep="", end="", flush=True)
             time.sleep(sleep / 5)
         time.sleep(sleep)
-    
+
     #end
     print(Colors["BOLD"] + text + " ", Colors["FAIL"] + lf + x, Colors["ENDC"] + "100%\n\n")
 
@@ -277,7 +277,7 @@ def loadingbarPFT(sleep=float(0.1), text=str("working"), loading_color=Colors["F
 
     sleep: amount of delay before next procent
     text:  the display text, will be inside [ ]
-    
+
     loading_color:  This will be the loadingbar color, default "FAIL"
     end_color:      This will be the exit color, default "ENDC"
     text_color:     This color will be the color of the text, default "FAIL"
@@ -292,14 +292,14 @@ def loadingbarPFT(sleep=float(0.1), text=str("working"), loading_color=Colors["F
     this one will print from 1% - 100%
     it will look something like this:   50% [working]
 
-    this will en with 2 new lines
+    this will end with 2 new lines
     """
     for x in range(100):
         if x < 10:
             #here we set the space to 3
             line = (str(x) + "%" + "   " + text_color + f"[{text}]")
             print(loading_color + line, "\r", sep="", end="", flush=True)
-        
+
         else:
             #this will set the space from 3 to 2
             line = (str(x) + "%" + "  " + text_color + f"[{text}]")
@@ -307,7 +307,7 @@ def loadingbarPFT(sleep=float(0.1), text=str("working"), loading_color=Colors["F
 
         #delay
         time.sleep(sleep)
-    
+
     #end, it will end with space
     print(loading_color + str(100) + "%", text_color + f" [{text}]")
     print(end_color + "\n")
